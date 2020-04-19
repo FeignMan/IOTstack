@@ -1,4 +1,5 @@
 #ignore data folders for containers
+*.txt
 /volumes/
 /backups/
 docker-compose.yml
