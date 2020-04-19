@@ -1,0 +1,14 @@
+  deluge:
+    image: linuxserver/deluge
+    container_name: deluge
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      #- UMASK_SET=022 #optional
+      #- DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - <path_to_volumes>/deluge/config:/config
+      - <path_to_data>/Downloads:/downloads
+    restart: unless-stopped
