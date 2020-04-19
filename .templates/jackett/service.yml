@@ -1,0 +1,14 @@
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      #- RUN_OPTS=run options here #optional
+    volumes:
+      - <path_to_data>:/config
+      - <path_to_blackhole>:/downloads
+    ports:
+      - 9117:9117
+    restart: unless-stopped
