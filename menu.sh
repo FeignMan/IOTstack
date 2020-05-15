@@ -409,7 +409,7 @@ case $mainmenu_selection in
 		"tinker" " " \
 		3>&1 1>&2 2>&3)
 	if [ -n "$hassio_machine" ]; then
-		curl -sL https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh | sudo bash -s -- -m $hassio_machine
+		curl -sL https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh | sudo bash -s -- -m $hassio_machine -d /home/pi/external/appdata/hassio
 	else
 		echo "no selection"
 		exit
