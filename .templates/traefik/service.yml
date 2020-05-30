@@ -9,6 +9,6 @@
       - TZ=Europe/Paris
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml
+      - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
       - ./letsencrypt/acme.json:/acme.json
     restart: unless-stopped
