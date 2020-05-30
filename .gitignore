@@ -4,3 +4,5 @@
 /backups/
 docker-compose.yml
 .outofdate
+*.log
+*~
