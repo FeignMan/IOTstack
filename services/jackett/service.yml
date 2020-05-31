@@ -9,6 +9,10 @@
     volumes:
       - /media/pi/External/appdata/jackett:/config
       - /media/pi/External/Downloads/.torrents:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jackett.rule=Host(`jackett.feignman.duckdns.org`)"
+      - "traefik.http.routers.jackett.entrypoints=websecure"
     ports:
       - 9117:9117
     restart: unless-stopped

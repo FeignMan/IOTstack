@@ -7,3 +7,7 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /media/pi/External/appdata/portainer/data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.feignman.duckdns.org`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"

@@ -12,5 +12,5 @@
       - /media/pi/External/appdata/grafana/log:/var/log/grafana
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`grafana.feignman.duckdns.org`)"
-      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.feignman.duckdns.org`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"

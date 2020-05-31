@@ -10,6 +10,10 @@
       - /media/pi/External/appdata/radarr/config:/config
       - /media/pi/External/Movies:/movies
       - /media/pi/External/Downloads:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.radarr.rule=Host(`radarr.feignman.duckdns.org`)"
+      - "traefik.http.routers.radarr.entrypoints=websecure"
     ports:
       - 7878:7878
     restart: unless-stopped
