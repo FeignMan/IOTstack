@@ -2,6 +2,7 @@
 *.txt
 /volumes/
 /backups/
+/letsencrypt/
 docker-compose.yml
 .outofdate
 *.log
