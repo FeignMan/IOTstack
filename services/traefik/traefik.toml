@@ -34,8 +34,7 @@
   [entryPoints.websecure]
     address = ":443"
     [entryPoints.websecure.http.tls]
-      certResolver = "leresolver"    
-
+      certResolver = "leresolver"
 
 ################################################################    
 # Enable ACME (Let's Encrypt): automatic SSL
@@ -114,7 +113,7 @@
 
   # Enable the API in insecure mode
   # Default: false
-  insecure = true
+  # insecure = true
 
   # Enabled Dashboard
   # Default: true
