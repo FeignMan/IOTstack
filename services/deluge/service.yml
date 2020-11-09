@@ -10,10 +10,5 @@
       #- DELUGE_LOGLEVEL=error #optional
     volumes:
       - /media/pi/External/appdata/deluge/config:/config
-      - /media/pi/External/Downloads:/downloads      
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.deluge.rule=Host(`deluge.feignman.duckdns.org`)"
-      - "traefik.http.routers.deluge.entrypoints=websecure"
-      - traefik.http.services.deluge.loadbalancer.server.port=8112
+      - /media/pi/External/Downloads:/downloads
     restart: unless-stopped

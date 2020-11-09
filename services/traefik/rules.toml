@@ -1,0 +1,17 @@
+# File Provider for access to deluge
+# https://stackoverflow.com/questions/46245684/how-to-get-traefik-to-redirect-to-specific-non-docker-port-from-inside-docker
+
+[http.routers]
+    [http.routers.deluge]
+        rule = "Host(`deluge.feignman.duckdns.org`)"
+        entrypoints = ["websecure"]
+        service = "deluge"
+    [http.routers.deluge.tls]
+        certResolver = "leresolver"
+
+
+[http.services]
+    [http.services.deluge.loadBalancer]
+        [[http.services.deluge.loadBalancer.servers]]
+        # IP of iotstack-default network gateway, since deluge is on host network
+            url = "http://172.18.0.1:8112"

@@ -1,6 +1,7 @@
 ################################################################
 #
 # Configuration sample for Traefik v2.
+# https://doc.traefik.io/traefik/reference/static-configuration/file/s
 #
 # For Traefik v1: https://github.com/containous/traefik/blob/v1.7/traefik.sample.toml
 #
@@ -147,3 +148,9 @@
 
   # Expose containers by default in traefik
   exposedByDefault = false
+
+# Enable File Provider
+# https://stackoverflow.com/questions/46245684/how-to-get-traefik-to-redirect-to-specific-non-docker-port-from-inside-docker
+[providers.file]
+  filename = "/etc/traefik/rules.toml"
+  watch = true

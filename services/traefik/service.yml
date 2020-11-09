@@ -10,12 +10,11 @@
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
+      - ./services/traefik/rules.toml:/etc/traefik/rules.toml:ro
       - ./letsencrypt/acme.json:/acme.json
     labels:
       - traefik.enable=true
       - traefik.http.routers.traefik.service=api@internal
       - traefik.http.routers.traefik.entrypoints=websecure
       - traefik.http.routers.traefik.rule=Host(`traefik.feignman.duckdns.org`)
-    command:
-      - --add-host=host.docker.internal:172.17.0.1
     restart: unless-stopped
