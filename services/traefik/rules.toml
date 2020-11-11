@@ -6,18 +6,14 @@
         rule = "Host(`deluge.feignman.duckdns.org`)"
         entrypoints = ["websecure"]
         service = "deluge"
-    [http.routers.deluge.tls]
-        certResolver = "leresolver"
-
-[tcp.routers]
-    [tcp.routers.hassio]
-        rule = "HostSNI(`hassio.feignman.duckdns.org`)"
+        [http.routers.deluge.tls]
+            certResolver = "leresolver"
+    [http.routers.hassio]
+        rule = "Host(`hassio.feignman.duckdns.org`)"
         entrypoints = ["websecure"]
         service = "hassio"
-    [tcp.routers.hassio.tls]
-        certResolver = "leresolver"
-        passthrough = true
-
+        [http.routers.hassio.tls]
+            certResolver = "leresolver"
 
 [http.services]
     [http.services.deluge.loadBalancer]
@@ -25,7 +21,6 @@
         # IP of iotstack-default network gateway, since deluge is on host network
             url = "http://172.18.0.1:8112"
 
-[tcp.services]
-    [tcp.services.hassio.loadBalancer]
-        [[tcp.services.hassio.loadBalancer.servers]]
-            address = "192.168.1.66:8123"
+    [http.services.hassio.loadBalancer]
+        [[http.services.hassio.loadBalancer.servers]]
+            url = "http://192.168.1.66:8123"
