@@ -1,0 +1,15 @@
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - UMASK_SET=022 #optional
+    volumes:
+      - <path_to_volumes>/sonarr/config:/config
+      - <path_to_nas>/Series:/series
+      - <path_to_nas>/Downloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped

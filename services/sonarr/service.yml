@@ -1,0 +1,20 @@
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - UMASK_SET=022 #optional
+    volumes:
+      - /media/pi/External/appdata/sonarr/config:/config
+      - /media/pi/External/Series:/series
+      - /media/pi/External/Downloads:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sonarr.rule=Host(`sonarr.feignman.duckdns.org`)"                 
+      - "traefik.http.routers.sonarr.entrypoints=websecure"                                    
+      - "traefik.http.routers.sonarr.middlewares=auth@file"
+    ports:
+      - 8989:8989
+    restart: unless-stopped
