@@ -1,0 +1,19 @@
+  nzbget:
+    image: ghcr.io/linuxserver/nzbget
+    container_name: nzbget
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - UMASK_SET=022 #optional
+    volumes:
+      - /media/pi/External/appdata/nzbget/config:/config
+      - /media/pi/External/Downloads:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nzbget.rule=Host(`nzbget.feignman.duckdns.org`)"
+      - "traefik.http.routers.nzbget.entrypoints=websecure"
+      # - "traefik.http.routers.nzbget.middlewares=auth@file"
+    ports:
+      - 6789:6789
+    restart: unless-stopped
