@@ -4,7 +4,7 @@
     env_file:
       - ./services/mariadb/mariadb.env
     volumes:
-      - /media/pi/External/appdata/mariadb/config:/config
+      - /mnt/internalssd/appdata/mariadb/config:/config
     ports:
       - 3306:3306
     restart: unless-stopped

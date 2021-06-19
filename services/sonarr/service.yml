@@ -7,9 +7,9 @@
       - TZ=Europe/Paris
       - UMASK_SET=022 #optional
     volumes:
-      - /media/pi/External/appdata/sonarr/config:/config
-      - /media/pi/External/Series:/series
-      - /media/pi/External/Downloads:/downloads
+      - /mnt/internalssd/appdata/sonarr/config:/config
+      - /mnt/internalssd/Series:/series
+      - /mnt/internalssd/Downloads:/downloads
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sonarr.rule=Host(`sonarr.feignman.duckdns.org`)"                 

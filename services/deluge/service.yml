@@ -9,6 +9,6 @@
       #- UMASK_SET=022 #optional
       #- DELUGE_LOGLEVEL=error #optional
     volumes:
-      - /media/pi/External/appdata/deluge/config:/config
-      - /media/pi/External/Downloads:/downloads
+      - /mnt/internalssd/appdata/deluge/config:/config
+      - /mnt/internalssd/Downloads:/downloads
     restart: unless-stopped

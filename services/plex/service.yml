@@ -8,7 +8,7 @@
       - VERSION=docker
       #- UMASK_SET=022 #optional
     volumes:
-      - /media/pi/External:/data
-      - /media/pi/External/appdata/plex/config:/config
-      - /media/pi/External/appdata/plex/transcode:/transcode
+      - /mnt/internalssd:/data
+      - /mnt/internalssd/appdata/plex/config:/config
+      - /mnt/internalssd/appdata/plex/transcode:/transcode
     restart: unless-stopped
