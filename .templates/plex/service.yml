@@ -1,5 +1,5 @@
   plex:
-    image: ghcr.io/linuxserver/plex:1.20.4.3517-ab5e1197c-ls124
+    image: linuxserver/plex:bionic-version-1.22.3.4523-d0ce30438
     container_name: plex
     network_mode: host
     environment:

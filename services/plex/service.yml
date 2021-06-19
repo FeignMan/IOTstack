@@ -1,11 +1,12 @@
   plex:
-    image: ghcr.io/linuxserver/plex:1.20.4.3517-ab5e1197c-ls124
+    image: linuxserver/plex:bionic-version-1.22.3.4523-d0ce30438
     container_name: plex
     network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
+      - SYSCALL_MAX_ENABLED=1
       #- UMASK_SET=022 #optional
     volumes:
       - /mnt/internalssd:/data
