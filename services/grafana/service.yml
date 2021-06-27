@@ -8,8 +8,8 @@
     env_file:
       - ./services/grafana/grafana.env
     volumes:
-      - /mnt/internalssd/appdata/grafana/data:/var/lib/grafana
-      - /mnt/internalssd/appdata/grafana/log:/var/log/grafana
+      - /mnt/externalraid/appdata/grafana/data:/var/lib/grafana
+      - /mnt/externalraid/appdata/grafana/log:/var/log/grafana
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.rule=Host(`grafana.feignman.duckdns.org`)"

@@ -7,9 +7,9 @@
       - TZ=Europe/Paris
       - UMASK_SET=000 #optional
     volumes:
-      - /mnt/internalssd/appdata/radarr/config:/config
-      - /mnt/internalssd/Movies:/movies
-      - /mnt/internalssd/Downloads:/downloads
+      - /mnt/externalraid/appdata/radarr/config:/config
+      - /mnt/externalraid/Movies:/movies
+      - /mnt/externalraid/Downloads:/downloads
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.radarr.rule=Host(`radarr.feignman.duckdns.org`)"

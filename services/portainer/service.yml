@@ -6,7 +6,7 @@
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /mnt/internalssd/appdata/portainer/data:/data
+      - /mnt/externalraid/appdata/portainer/data:/data
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.feignman.duckdns.org`)"

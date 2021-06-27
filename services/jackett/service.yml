@@ -7,8 +7,8 @@
       - TZ=Europe/Paris
       #- RUN_OPTS=run options here #optional
     volumes:
-      - /mnt/internalssd/appdata/jackett:/config
-      - /mnt/internalssd/Downloads/.torrents:/downloads
+      - /mnt/externalraid/appdata/jackett:/config
+      - /mnt/externalraid/Downloads/.torrents:/downloads
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jackett.rule=Host(`jackett.feignman.duckdns.org`)"

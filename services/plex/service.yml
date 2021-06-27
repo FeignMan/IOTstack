@@ -9,7 +9,7 @@
       - SYSCALL_MAX_ENABLED=1
       #- UMASK_SET=022 #optional
     volumes:
-      - /mnt/internalssd:/data
-      - /mnt/internalssd/appdata/plex/config:/config
-      - /mnt/internalssd/appdata/plex/transcode:/transcode
+      - /mnt/externalraid:/data
+      - /mnt/externalraid/appdata/plex/config:/config
+      - /mnt/externalraid/appdata/plex/transcode:/transcode
     restart: unless-stopped

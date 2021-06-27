@@ -7,8 +7,8 @@
       - TZ=Europe/Paris
       - UMASK_SET=022 #optional
     volumes:
-      - /mnt/internalssd/appdata/nzbget/config:/config
-      - /mnt/internalssd/Downloads:/downloads
+      - /mnt/externalraid/appdata/nzbget/config:/config
+      - /mnt/externalraid/Downloads:/downloads
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nzbget.rule=Host(`nzbget.feignman.duckdns.org`)"
