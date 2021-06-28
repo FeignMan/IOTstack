@@ -7,7 +7,7 @@
       - TZ=Europe/Paris
       - UMASK_SET=000 #optional
     volumes:
-      - /mnt/externalraid/appdata/radarr/config:/config
+      - /var/lib/iotstack/radarr/config:/config
       - /mnt/externalraid/Movies:/movies
       - /mnt/externalraid/Downloads:/downloads
     labels:

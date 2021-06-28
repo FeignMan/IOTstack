@@ -9,5 +9,5 @@
     env_file:
       - ./services/influxdb/influxdb.env
     volumes:
-      - /mnt/externalraid/appdata/influxdb/data:/var/lib/influxdb
-      - /mnt/externalraid/appdata/influxdb/db:/var/lib/influxdb/backup
+      - /var/lib/iotstack/influxdb/data:/var/lib/influxdb
+      - /var/lib/iotstack/influxdb/db:/var/lib/influxdb/backup

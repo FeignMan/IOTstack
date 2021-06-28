@@ -7,7 +7,7 @@
       - TZ=Europe/Paris
       - UMASK_SET=022 #optional
     volumes:
-      - /mnt/externalraid/appdata/sonarr/config:/config
+      - /var/lib/iotstack/sonarr/config:/config
       - /mnt/externalraid/Series:/series
       - /mnt/externalraid/Downloads:/downloads
     labels:

@@ -7,7 +7,7 @@
       - TZ=Europe/Paris
       #- RUN_OPTS=run options here #optional
     volumes:
-      - /mnt/externalraid/appdata/jackett:/config
+      - /var/lib/iotstack/jackett:/config
       - /mnt/externalraid/Downloads/.torrents:/downloads
     labels:
       - "traefik.enable=true"

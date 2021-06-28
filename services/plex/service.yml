@@ -10,6 +10,6 @@
       #- UMASK_SET=022 #optional
     volumes:
       - /mnt/externalraid:/data
-      - /mnt/externalraid/appdata/plex/config:/config
-      - /mnt/externalraid/appdata/plex/transcode:/transcode
+      - /var/lib/iotstack/plex/config:/config
+      - /var/lib/iotstack/plex/transcode:/transcode
     restart: unless-stopped

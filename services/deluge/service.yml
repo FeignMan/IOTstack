@@ -9,6 +9,6 @@
       #- UMASK_SET=022 #optional
       #- DELUGE_LOGLEVEL=error #optional
     volumes:
-      - /mnt/externalraid/appdata/deluge/config:/config
+      - /var/lib/iotstack/deluge/config:/config
       - /mnt/externalraid/Downloads:/downloads
     restart: unless-stopped

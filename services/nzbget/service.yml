@@ -7,7 +7,7 @@
       - TZ=Europe/Paris
       - UMASK_SET=022 #optional
     volumes:
-      - /mnt/externalraid/appdata/nzbget/config:/config
+      - /var/lib/iotstack/nzbget/config:/config
       - /mnt/externalraid/Downloads:/downloads
     labels:
       - "traefik.enable=true"

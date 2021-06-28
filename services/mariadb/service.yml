@@ -4,7 +4,7 @@
     env_file:
       - ./services/mariadb/mariadb.env
     volumes:
-      - /mnt/externalraid/appdata/mariadb/config:/config
+      - /var/lib/iotstack/mariadb/config:/config
     ports:
       - 3306:3306
     restart: unless-stopped
