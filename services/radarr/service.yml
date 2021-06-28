@@ -1,5 +1,5 @@
   radarr:
-    image: linuxserver/radarr
+    image: linuxserver/radarr:version-3.2.2.5080
     container_name: radarr
     environment:
       - PUID=1000
