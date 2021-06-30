@@ -2,6 +2,7 @@
      container_name: telegraf
      image: telegraf
      restart: unless-stopped
+     privileged: true
      environment:
        HOST_PROC: /rootfs/proc
        HOST_SYS: /rootfs/sys
