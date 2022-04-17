@@ -1,0 +1,20 @@
+  lidarr:
+    image: lscr.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - UMASK_SET=022 #optional
+    volumes:
+      - /var/lib/iotstack/lidarr/config:/config
+      - /mnt/externalraid/Music:/music
+      - /mnt/externalraid/Downloads:/downloads
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.lidarr.rule=Host(`lidarr.feignman.duckdns.org`)"
+      - "traefik.http.routers.lidarr.entrypoints=websecure"
+      - "traefik.http.routers.lidarr.middlewares=auth@file"
+    ports:
+      - 8686:8686
+    restart: unless-stopped

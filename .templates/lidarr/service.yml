@@ -1,0 +1,15 @@
+  lidarr:
+    image: lscr.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - UMASK_SET=022 #optional
+    volumes:
+      - <path_to_volumes>/lidarr/config:/config
+      - <path_to_nas>/Music:/music
+      - <path_to_nas>/Downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped
