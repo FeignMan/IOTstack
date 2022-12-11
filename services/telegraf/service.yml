@@ -1,7 +1,9 @@
   telegraf:
-     container_name: telegraf
+     container_name: telegraf:1.24.4
      image: telegraf
      restart: unless-stopped
+     # Added for latest telegraf: https://www.influxdata.com/blog/docker-run-telegraf-as-non-root/
+     user: telegraf:133
      privileged: true
      environment:
        HOST_PROC: /rootfs/proc
