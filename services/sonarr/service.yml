@@ -1,5 +1,5 @@
   sonarr:
-    image: linuxserver/sonarr:version-3.0.6.1265
+    image: linuxserver/sonarr:version-3.0.9.1549
     container_name: sonarr
     environment:
       - PUID=1000
