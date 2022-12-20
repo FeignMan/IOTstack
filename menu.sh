@@ -11,6 +11,7 @@ declare -A cont_array=(
 	[radarr]="Radarr"
 	[sonarr]="Sonarr"
 	[lidarr]="Lidarr"
+	[prowlarr]="Prowlarr"
 	[nzbget]="NZBGet"
 	[nodered]="Node-RED"
 	[influxdb]="InfluxDB"
@@ -37,7 +38,7 @@ declare -A cont_array=(
 	[python]="Python 3"
 
 )
-declare -a armhf_keys=("portainer" "traefik" "deluge" "jackett" "radarr" "sonarr" "lidarr" "nzbget" "nodered" "influxdb" "grafana" "mosquitto" "telegraf" "mariadb" "postgres"
+declare -a armhf_keys=("portainer" "traefik" "deluge" "jackett" "radarr" "sonarr" "lidarr" "prowlarr" "nzbget" "nodered" "influxdb" "grafana" "mosquitto" "telegraf" "mariadb" "postgres"
 	"adminer" "openhab" "zigbee2mqtt" "pihole" "plex" "tasmoadmin" "rtl_433" "espruinohub"
 	"motioneye" "webthings_gateway" "blynk_server" "nextcloud" "diyhue" "homebridge" "python")
 
