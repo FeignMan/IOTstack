@@ -10,3 +10,7 @@
     ports:
       - 9696:9696
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`prowlarr.feignman.duckdns.org`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
