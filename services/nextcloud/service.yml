@@ -1,0 +1,28 @@
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    ports:
+      - 9321:80
+    volumes:
+      - /var/lib/iotstack/nextcloud/html:/var/www/html
+      - /mnt/datassd:/var/www/html/data
+    restart: unless-stopped
+    environment:
+      - APACHE_DISABLE_REWRITE_IP=1
+      - TRUSTED_PROXIES=172.18.0.0/16
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=mariadb
+      # - NEXTCLOUD_UPDATE=1
+    env_file: 
+     - ./secrets/nextcloud.env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`nextcloud.feignman.duckdns.org`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+
+
