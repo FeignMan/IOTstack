@@ -2,7 +2,7 @@
     image: linuxserver/mariadb
     container_name: mariadb
     env_file:
-      - ./services/mariadb/mariadb.env
+      - ./secrets/mariadb.env
     volumes:
       - /var/lib/iotstack/mariadb/config:/config
     ports:

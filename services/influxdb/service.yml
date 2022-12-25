@@ -7,7 +7,7 @@
       - 8083:8083
       - 2003:2003
     env_file:
-      - ./services/influxdb/influxdb.env
+      - ./secrets/influxdb.env
     volumes:
       - /var/lib/iotstack/influxdb/data:/var/lib/influxdb
       - /var/lib/iotstack/influxdb/db:/var/lib/influxdb/backup

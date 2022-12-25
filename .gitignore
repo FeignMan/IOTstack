@@ -7,3 +7,8 @@ docker-compose.yml
 .outofdate
 *.log
 *~
+.gitsecret/keys/random_seed
+!*.secret
+secrets/nextcloud.env
+secrets/influxdb.env
+secrets/mariadb.env
