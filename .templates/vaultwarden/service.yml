@@ -1,0 +1,12 @@
+  vaultwarden:
+    image: vaultwarden/server:1.27.0-alpine
+    container_name: vaultwarden
+    volumes:
+      - /volumes/vaultwarden:/data/
+    ports:
+      - 8090:80
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vaultwarden.rule=Host(`vaultwarden.feignman.duckdns.org`)"
+      - "traefik.http.routers.vaultwarden.entrypoints=websecure"

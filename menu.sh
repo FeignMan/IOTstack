@@ -32,6 +32,7 @@ declare -A cont_array=(
 	[webthings_gateway]="Mozilla webthings-gateway"
 	[blynk_server]="blynk-server"
 	[nextcloud]="Next-Cloud"
+	[vaultwarden]="Vaultwarden"
 	[nginx]="NGINX by linuxserver"
 	[diyhue]="diyHue"
 	[homebridge]="Homebridge"
@@ -40,7 +41,7 @@ declare -A cont_array=(
 )
 declare -a armhf_keys=("portainer" "traefik" "deluge" "jackett" "radarr" "sonarr" "lidarr" "prowlarr" "nzbget" "nodered" "influxdb" "grafana" "mosquitto" "telegraf" "mariadb" "postgres"
 	"adminer" "openhab" "zigbee2mqtt" "pihole" "plex" "tasmoadmin" "rtl_433" "espruinohub"
-	"motioneye" "webthings_gateway" "blynk_server" "nextcloud" "diyhue" "homebridge" "python")
+	"motioneye" "webthings_gateway" "blynk_server" "nextcloud" "vaultwarden" "diyhue" "homebridge" "python")
 
 sys_arch=$(uname -m)
 
