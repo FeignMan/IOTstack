@@ -14,6 +14,12 @@
         service = "hassio"
         [http.routers.hassio.tls]
             certResolver = "leresolver"
+    [http.routers.hass]
+        rule = "Host(`hass.feignman.duckdns.org`)"
+        entrypoints = ["websecure"]
+        service = "hass"
+        [http.routers.hass.tls]
+            certResolver = "leresolver"
 
 [http.services]
     [http.services.deluge.loadBalancer]
@@ -25,6 +31,10 @@
         [[http.services.hassio.loadBalancer.servers]]
             url = "http://192.168.1.66:8123"
 
+    [http.services.hass.loadBalancer]
+        [[http.services.hass.loadBalancer.servers]]
+            url = "http://192.168.1.65:8123"
+
 [http.middlewares]
     [http.middlewares.auth.basicauth]
         users = [
@@ -32,3 +42,4 @@
             "aurelia:$2y$05$nt/XLqyGeieIp1oNQ7110.WyGyupcDrn9soC5U9s66zM3Xbiojjtq"
         ]
     #   removeheader = true
+
