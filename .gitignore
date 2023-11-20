@@ -12,3 +12,4 @@ docker-compose.yml
 secrets/nextcloud.env
 secrets/influxdb.env
 secrets/mariadb.env
+duck/duck.sh
