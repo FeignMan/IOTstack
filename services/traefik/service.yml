@@ -1,5 +1,5 @@
   traefik:
-    image: traefik:2.9.8
+    image: traefik:2.11
     container_name: traefik
     ports:
       - "80:80"
