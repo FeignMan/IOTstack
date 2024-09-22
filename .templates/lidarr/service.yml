@@ -1,5 +1,5 @@
   lidarr:
-    image: lscr.io/linuxserver/lidarr
+    image: linuxserver/lidarr:2.5.3
     container_name: lidarr
     environment:
       - PUID=1000
