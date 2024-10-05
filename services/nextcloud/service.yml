@@ -1,5 +1,5 @@
   nextcloud:
-    image: nextcloud
+    image: nextcloud:29.0.7-apache
     container_name: nextcloud
     ports:
       - 9321:80
