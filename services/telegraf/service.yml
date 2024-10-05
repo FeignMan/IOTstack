@@ -10,7 +10,7 @@
        HOST_SYS: /rootfs/sys
        HOST_ETC: /rootfs/etc
      volumes:
-       - ./services/telegraf/rpi-playground.conf:/etc/telegraf/telegraf.conf:ro
+       - ./services/telegraf/zimaboard.conf:/etc/telegraf/telegraf.conf:ro
        - /var/run/docker.sock:/var/run/docker.sock:ro
        - /sys:/rootfs/sys:ro
        - /proc:/rootfs/proc:ro
