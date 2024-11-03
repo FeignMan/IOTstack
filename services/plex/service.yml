@@ -12,4 +12,6 @@
       - /mnt/externalraid:/data
       - /var/lib/iotstack/plex/config:/config
       - /var/lib/iotstack/plex/transcode:/transcode
+    devices:
+      - "/dev/dri:/dev/dri"                         # Intel QSV
     restart: unless-stopped

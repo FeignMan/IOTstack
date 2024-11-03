@@ -12,4 +12,6 @@
       #- ~/mnt/HDD/tvseries:/tv
       #- ~/mnt/HDD/movies:/movies
       - ./volumes/plex/transcode:/transcode
+    devices:
+      - "/dev/dri:/dev/dri"                         # Intel QSV
     restart: unless-stopped
