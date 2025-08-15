@@ -171,20 +171,6 @@ services:
       - 6789:6789
     restart: unless-stopped
 
-  # influxdb:
-  #   container_name: influxdb
-  #   image: "influxdb:1.8.10"
-  #   restart: unless-stopped
-  #   ports:
-  #     - 8086:8086
-  #     - 8083:8083
-  #     - 2003:2003
-  #   env_file:
-  #     - ./secrets/influxdb.env
-  #   volumes:
-  #     - /var/lib/iotstack/influxdb/data:/var/lib/influxdb
-  #     - /var/lib/iotstack/influxdb/db:/var/lib/influxdb/backup
-
   influxdb:
     container_name: influxdb
     image: influxdb:2.7
