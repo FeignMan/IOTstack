@@ -1,6 +1,6 @@
   telegraf:
      container_name: telegraf
-     image: telegraf:1.24.4
+     image: telegraf:1.35
      restart: unless-stopped
      # Added for latest telegraf: https://www.influxdata.com/blog/docker-run-telegraf-as-non-root/
      user: telegraf:133
