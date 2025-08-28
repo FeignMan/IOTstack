@@ -1,54 +1,54 @@
 version: '2'
 services:
 
-  portainer:
-    container_name: portainer
-    image: portainer/portainer-ce:sts
-    restart: unless-stopped
-    ports:
-      - 9000:9000
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /var/lib/iotstack/portainer/data:/data
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.feignman.duckdns.org`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
+  # portainer:
+  #   container_name: portainer
+  #   image: portainer/portainer-ce:sts
+  #   restart: unless-stopped
+  #   ports:
+  #     - 9000:9000
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - /var/lib/iotstack/portainer/data:/data
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.portainer.rule=Host(`portainer.feignman.duckdns.org`)"
+  #     - "traefik.http.routers.portainer.entrypoints=websecure"
 
-  traefik:
-    image: traefik:2.11
-    container_name: traefik
-    ports:
-      - "80:80"
-      - "443:443"
-    environment:
-      - TZ=Europe/Paris
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
-      - ./services/traefik/rules.toml:/etc/traefik/rules.toml:ro
-      - /var/lib/iotstack/letsencrypt/acme.json:/acme.json
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.traefik.service=api@internal
-      - traefik.http.routers.traefik.entrypoints=websecure
-      - traefik.http.routers.traefik.rule=Host(`traefik.feignman.duckdns.org`)
-    restart: unless-stopped
+  # traefik:
+  #   image: traefik:2.11
+  #   container_name: traefik
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   environment:
+  #     - TZ=Europe/Paris
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
+  #     - ./services/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
+  #     - ./services/traefik/rules.toml:/etc/traefik/rules.toml:ro
+  #     - /var/lib/iotstack/letsencrypt/acme.json:/acme.json
+  #   labels:
+  #     - traefik.enable=true
+  #     - traefik.http.routers.traefik.service=api@internal
+  #     - traefik.http.routers.traefik.entrypoints=websecure
+  #     - traefik.http.routers.traefik.rule=Host(`traefik.feignman.duckdns.org`)
+  #   restart: unless-stopped
 
-  deluge:
-    image: linuxserver/deluge
-    container_name: deluge
-    network_mode: host
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      #- UMASK_SET=022 #optional
-      #- DELUGE_LOGLEVEL=error #optional
-    volumes:
-      - /var/lib/iotstack/deluge/config:/config
-      - /mnt/externalraid/Downloads:/downloads
-    restart: unless-stopped
+  # deluge:
+  #   image: linuxserver/deluge
+  #   container_name: deluge
+  #   network_mode: host
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Paris
+  #     #- UMASK_SET=022 #optional
+  #     #- DELUGE_LOGLEVEL=error #optional
+  #   volumes:
+  #     - /var/lib/iotstack/deluge/config:/config
+  #     - /mnt/externalraid/Downloads:/downloads
+  #   restart: unless-stopped
 
   jackett:
     image: linuxserver/jackett
@@ -70,47 +70,47 @@ services:
       - 9117:9117
     restart: unless-stopped
 
-  radarr:
-    image: linuxserver/radarr:5.10.4
-    container_name: radarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      - UMASK_SET=000 #optional
-    volumes:
-      - /var/lib/iotstack/radarr/config:/config
-      - /mnt/externalraid/Movies:/movies
-      - /mnt/externalraid/Downloads:/downloads
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.radarr.rule=Host(`radarr.feignman.duckdns.org`)"
-      - "traefik.http.routers.radarr.entrypoints=websecure"
-      - "traefik.http.routers.radarr.middlewares=auth@file"
-    ports:
-      - 7878:7878
-    restart: unless-stopped
+  # radarr:
+  #   image: linuxserver/radarr:5.10.4
+  #   container_name: radarr
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Paris
+  #     - UMASK_SET=000 #optional
+  #   volumes:
+  #     - /var/lib/iotstack/radarr/config:/config
+  #     - /mnt/externalraid/Movies:/movies
+  #     - /mnt/externalraid/Downloads:/downloads
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.radarr.rule=Host(`radarr.feignman.duckdns.org`)"
+  #     - "traefik.http.routers.radarr.entrypoints=websecure"
+  #     - "traefik.http.routers.radarr.middlewares=auth@file"
+  #   ports:
+  #     - 7878:7878
+  #   restart: unless-stopped
 
-  sonarr:
-    image: linuxserver/sonarr:4.0.9
-    container_name: sonarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      - UMASK_SET=022 #optional
-    volumes:
-      - /var/lib/iotstack/sonarr/config:/config
-      - /mnt/externalraid/Series:/series
-      - /mnt/externalraid/Downloads:/downloads
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.sonarr.rule=Host(`sonarr.feignman.duckdns.org`)"
-      - "traefik.http.routers.sonarr.entrypoints=websecure"
-      - "traefik.http.routers.sonarr.middlewares=auth@file"
-    ports:
-      - 8989:8989
-    restart: unless-stopped
+  # sonarr:
+  #   image: linuxserver/sonarr:4.0.9
+  #   container_name: sonarr
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Paris
+  #     - UMASK_SET=022 #optional
+  #   volumes:
+  #     - /var/lib/iotstack/sonarr/config:/config
+  #     - /mnt/externalraid/Series:/series
+  #     - /mnt/externalraid/Downloads:/downloads
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.sonarr.rule=Host(`sonarr.feignman.duckdns.org`)"
+  #     - "traefik.http.routers.sonarr.entrypoints=websecure"
+  #     - "traefik.http.routers.sonarr.middlewares=auth@file"
+  #   ports:
+  #     - 8989:8989
+  #   restart: unless-stopped
 
   lidarr:
     image: linuxserver/lidarr:2.5.3
@@ -151,25 +151,25 @@ services:
       - "traefik.http.routers.prowlarr.entrypoints=websecure"
       - "traefik.http.routers.prowlarr.middlewares=auth@file"
 
-  nzbget:
-    image: ghcr.io/linuxserver/nzbget:21.1.20220414
-    container_name: nzbget
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Paris
-      - UMASK_SET=022 #optional
-    volumes:
-      - /var/lib/iotstack/nzbget/config:/config
-      - /mnt/externalraid/Downloads:/downloads
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.nzbget.rule=Host(`nzbget.feignman.duckdns.org`)"
-      - "traefik.http.routers.nzbget.entrypoints=websecure"
-      # - "traefik.http.routers.nzbget.middlewares=auth@file"
-    ports:
-      - 6789:6789
-    restart: unless-stopped
+  # nzbget:
+  #   image: ghcr.io/linuxserver/nzbget:21.1.20220414
+  #   container_name: nzbget
+  #   environment:
+  #     - PUID=1000
+  #     - PGID=1000
+  #     - TZ=Europe/Paris
+  #     - UMASK_SET=022 #optional
+  #   volumes:
+  #     - /var/lib/iotstack/nzbget/config:/config
+  #     - /mnt/externalraid/Downloads:/downloads
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.nzbget.rule=Host(`nzbget.feignman.duckdns.org`)"
+  #     - "traefik.http.routers.nzbget.entrypoints=websecure"
+  #     # - "traefik.http.routers.nzbget.middlewares=auth@file"
+  #  ports:
+  #    - 6789:6789
+  #  restart: unless-stopped
 
   influxdb:
     container_name: influxdb
@@ -272,18 +272,18 @@ services:
     links:
       - mariadb
 
-  vaultwarden:
-    image: vaultwarden/server:1.32.1-alpine
-    container_name: vaultwarden
-    volumes:
-      - /var/lib/iotstack/vaultwarden:/data/
-    ports:
-      - 8090:80
-    restart: unless-stopped
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.vaultwarden.rule=Host(`vaultwarden.feignman.duckdns.org`)"
-      - "traefik.http.routers.vaultwarden.entrypoints=websecure"
+  # vaultwarden:
+  #   image: vaultwarden/server:1.32.1-alpine
+  #   container_name: vaultwarden
+  #   volumes:
+  #     - /var/lib/iotstack/vaultwarden:/data/
+  #   ports:
+  #     - 8090:80
+  #   restart: unless-stopped
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.vaultwarden.rule=Host(`vaultwarden.feignman.duckdns.org`)"
+  #     - "traefik.http.routers.vaultwarden.entrypoints=websecure"
 
   tdarr:
     container_name: tdarr
